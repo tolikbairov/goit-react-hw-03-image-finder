@@ -2,8 +2,9 @@ import { Component } from "react";
 import { getImages } from "../../services/pixabayApiService";
 import LoaderSpiner from "../Loader/Loader";
 import ImageGalleryItem from "./ImageGalleryItem/ImageGalleryItem";
+import styles from "./ImageGallery.module.css";
+import PropTypes from "prop-types";
 
-// import SearchBar from "./Searchbar";
 export default class ImageGallery extends Component {
   state = {
     page: 1,
@@ -42,7 +43,7 @@ export default class ImageGallery extends Component {
     return (
       <>
         {this.state.loading && <LoaderSpiner />}
-        <ul className="ImageGallery">
+        <ul className={styles.ImageGallery}>
           {this.state.gallery.map((item) => (
             <ImageGalleryItem item={item} key={item.id} />
           ))}
@@ -50,7 +51,7 @@ export default class ImageGallery extends Component {
         {this.state.isHidden && (
           <button
             type="button"
-            className="Button"
+            className={styles.Button}
             onClick={this.onLoadMoreBtnClick}
           >
             Load more
@@ -60,3 +61,6 @@ export default class ImageGallery extends Component {
     );
   }
 }
+ImageGallery.propTypes = {
+  searchQuery: PropTypes.string,
+};

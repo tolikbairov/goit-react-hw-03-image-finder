@@ -37,6 +37,7 @@ class Modal extends Component {
 
 Modal.propTypes = {
   image: PropTypes.string,
+  onClose: PropTypes.func,
 };
 
 export default Modal;

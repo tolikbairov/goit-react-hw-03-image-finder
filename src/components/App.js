@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 
-import SearchBar from "./searchbar/Searchbar";
+import Searchbar from "./searchbar/Searchbar";
 import ImageGallery from "./ImageGallery/ImageGallery";
 // import ContactForm from "./contact-form/contact-form";
 // import ContactList from "./contact-list/contact-list";
@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SearchBar onSubmit={this.handleFormSubmit} />
+        <Searchbar onSubmit={this.handleFormSubmit} />
         <ImageGallery searchQuery={this.state.searchQuery} />
         <ToastContainer autoClose={3500} />
       </div>

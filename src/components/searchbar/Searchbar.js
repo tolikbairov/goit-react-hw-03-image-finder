@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { toast } from "react-toastify";
-export default class SearchBar extends Component {
+import style from "./Searchbar.module.css";
+import PropTypes from "prop-types";
+export default class Searchbar extends Component {
   state = { searchQuery: "" };
   handleQueryChange = (event) => {
     this.setState({ searchQuery: event.currentTarget.value.toLowerCase() });
@@ -16,18 +18,18 @@ export default class SearchBar extends Component {
   };
   render() {
     return (
-      <header className="Searchbar">
-        <form className="SearchForm">
+      <header className={style.Searchbar}>
+        <form className={style.SearchForm}>
           <button
             type="submit"
-            className="SearchForm-button"
+            className={style["SearchForm-button"]}
             onClick={this.handleSubmit}
           >
-            <span className="SearchForm-button-label">Search</span>
+            <span className={style["SearchForm-button-label"]}>Search</span>
           </button>
 
           <input
-            className="SearchForm-input"
+            className={style["SearchForm-input"]}
             type="text"
             autoComplete="off"
             autoFocus
@@ -40,3 +42,6 @@ export default class SearchBar extends Component {
     );
   }
 }
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func,
+};
